@@ -1,5 +1,6 @@
 <?php 
 require_once __DIR__ . '/Models/Product.php';
+require_once __DIR__ . '/Models/AnimalType.php';
 require_once __DIR__ . '/data/db.php';
 
 
@@ -15,6 +16,23 @@ require_once __DIR__ . '/data/db.php';
 </head>
 <body>
     
+<div class="container d-flex">
+
+    <?php foreach($products as $product): ?>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+
+                <h5 class="card-title"><?php echo $product->name ?></h5>
+
+                <h6 class="card-subtitle mb-2 text-muted"> <?php echo $product->price ?> euro</h6>
+
+                <p class="card-text"> <?php echo $product->description ?></p>
+
+                <h6> <?php echo $product->type ?> </h6>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
 
 
 
