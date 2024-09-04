@@ -3,6 +3,7 @@ require_once __DIR__ . '/Models/Product.php';
 // require_once __DIR__ . '/Models/AnimalType.php';
 require_once __DIR__ . '/Models/DogProduct.php';
 require_once __DIR__ . '/Models/CatProduct.php';
+require_once __DIR__ . '/Models/Category.php';
 require_once __DIR__ . '/data/db.php';
 
 
@@ -31,6 +32,8 @@ require_once __DIR__ . '/data/db.php';
                 <p class="card-text"> <?php echo $product->description ?></p>
 
                 <h6> <?php echo $product->type ?> </h6>
+
+                <h6> Categoria: <?php echo $product->category->name ?> </h6>
             </div>
         </div>
     <?php endforeach; ?>
