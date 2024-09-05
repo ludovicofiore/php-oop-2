@@ -27,7 +27,17 @@ require_once __DIR__ . '/data/db.php';
 
                 <h5 class="card-title"><?php echo $product->name ?></h5>
 
-                <h6 class="card-subtitle mb-2 text-muted"> <?php echo $product->getPrice() ?> euro</h6>
+                <h6 class="card-subtitle mb-2 text-muted"> <?php
+
+                // aggiungo try catch per gestione errore
+                try{
+                    $product-> setPrice('ciao'); 
+                }catch(Exception $e){
+                    echo '<h3>Errore: ' . $e->getMessage() . '</h3>';
+                }
+
+                echo $product->getPrice() . ' euro';
+                ?></h6>
 
                 <p class="card-text"> <?php echo $product->description ?></p>
 
