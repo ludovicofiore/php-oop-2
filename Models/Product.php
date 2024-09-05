@@ -4,10 +4,10 @@ class Product{
 
     public $name;
     public $description;
-    private $price;
+    protected $price;
     public $category;
 
-    public function __construct(string $_name, string $_description, float $_price, Category $_category){
+    public function __construct(string $_name, string $_description, $_price, Category $_category){
         $this->name = $_name;
         $this->description = $_description;
         // $this->price = $_price;
@@ -21,6 +21,11 @@ class Product{
     }
 
     public function setPrice($price){
+        // controllo errore
+        if(!is_numeric($price)){
+            throw new Exception ('Il prezzo deve essere un numero');
+        }
+
         $this->price = $price;
     }
 }

@@ -19,7 +19,7 @@ require_once __DIR__ . '/data/db.php';
 </head>
 <body>
     
-<div class="container d-flex">
+<div class="container d-flex justify-content-between mt-5">
 
     <?php foreach($products as $product): ?>
         <div class="card" style="width: 18rem;">
