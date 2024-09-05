@@ -25,7 +25,16 @@ require_once __DIR__ . '/data/db.php';
         <div class="card" style="width: 18rem;">
             <div class="card-body">
 
-                <h5 class="card-title"><?php echo $product->name ?></h5>
+                <h5 class="card-title"><?php
+                // try catch per gestione errore
+                try{
+                    $product-> setName('si');
+                }catch(Exception $e){
+                    echo 'Errore: ' . $e->getMessage() . '<br>';
+                }
+
+                echo $product->getName();  
+                ?></h5>
 
                 <h6 class="card-subtitle mb-2 text-muted"> <?php
 
@@ -33,7 +42,7 @@ require_once __DIR__ . '/data/db.php';
                 try{
                     $product-> setPrice('ciao'); 
                 }catch(Exception $e){
-                    echo '<h3>Errore: ' . $e->getMessage() . '</h3>';
+                    echo 'Errore: ' . $e->getMessage() . '<br>';
                 }
 
                 echo $product->getPrice() . ' euro';
